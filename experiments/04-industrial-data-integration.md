@@ -11,7 +11,10 @@ Read and integrate light, air-quality/gas, and distance measurements using LDR, 
 5. Print all readings together every 5 seconds.
 
 ## Components Required
-Arduino UNO, LDR and voltage-divider resistor, MQ-135 module, HC-SR04 ultrasonic sensor, breadboard, jumper wires, USB cable.
+
+> [!NOTE]
+> Arduino UNO, LDR and voltage-divider resistor, MQ-135 module, HC-SR04 ultrasonic sensor, breadboard, jumper wires, USB cable.
+
 
 ## Procedure
 1. Connect LDR divider output to A0 and MQ-135 analog output to A1.
