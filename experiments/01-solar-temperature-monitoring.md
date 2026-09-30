@@ -11,12 +11,15 @@ Measure temperature and humidity using DHT22 and upload the data to ThingSpeak t
 5. Wait between cloud updates and repeat.
 
 ## Components Required
-- Arduino UNO ×1
-- DHT22 sensor ×1
-- USB cable, jumper wires
-- Laptop with internet, Arduino IDE, Python 3
-- ThingSpeak channel and Write API key
-- Python packages: `pyserial`, `requests`; Arduino library: `SimpleDHT`
+
+> [!NOTE]
+> - Arduino UNO ×1
+> - DHT22 sensor ×1
+> - USB cable, jumper wires
+> - Laptop with internet, Arduino IDE, Python 3
+> - ThingSpeak channel and Write API key
+> - Python packages: `pyserial`, `requests`; Arduino library: `SimpleDHT`
+
 
 ## Procedure
 1. Connect DHT22 VCC to 5V, DATA to D2, GND to GND; leave NC unconnected.
