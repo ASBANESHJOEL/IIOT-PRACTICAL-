@@ -12,7 +12,10 @@ Control two DC motor actuators through a 4-channel relay module using Arduino UN
 6. Turn them OFF for 1 second; repeat and print status.
 
 ## Components Required
-Arduino UNO, 4-channel relay module, 2 DC motors, 2 LEDs, 2 × 220/330 Ω resistors, external DC motor supply, breadboard, wires, USB cable, computer.
+
+> [!NOTE]
+> Arduino UNO, 4-channel relay module, 2 DC motors, 2 LEDs, 2 × 220/330 Ω resistors, external DC motor supply, breadboard, wires, USB cable, computer.
+
 
 ## Procedure
 1. Connect relay IN1–IN4 to D8–D11; VCC and GND as required by the module.
