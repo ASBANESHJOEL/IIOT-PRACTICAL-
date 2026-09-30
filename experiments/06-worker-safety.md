@@ -12,7 +12,10 @@ Use MQ-2 and HC-SR04 with LEDs and buzzer to detect gas-level threshold and near
 6. If either alert is active, sound buzzer; print readings/status and repeat.
 
 ## Components Required
-Arduino UNO, MQ-2 gas sensor, HC-SR04, 2 LEDs, 2 × 220 Ω resistors, buzzer, breadboard, jumper wires, USB cable.
+
+> [!NOTE]
+> Arduino UNO, MQ-2 gas sensor, HC-SR04, 2 LEDs, 2 × 220 Ω resistors, buzzer, breadboard, jumper wires, USB cable.
+
 
 ## Procedure
 1. Connect MQ-2 VCC/GND/AO to 5V/GND/A0.
