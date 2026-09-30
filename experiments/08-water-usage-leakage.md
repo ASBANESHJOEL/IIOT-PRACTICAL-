@@ -12,7 +12,10 @@ Use ESP32, raindrop sensor, YF-S201 flow sensor, relay, LED, buzzer, solenoid va
 6. Send leakage status to Blynk V0 and flow rate to V1.
 
 ## Components Required
-ESP32, LM393 rain sensor, YF-S201 flow sensor, 4-channel relay module, solenoid valve, 2 LEDs, buzzer, 220 Ω resistor, suitable power supplies, Wi-Fi, Blynk account/template/token, jumper wires.
+
+> [!NOTE]
+> ESP32, LM393 rain sensor, YF-S201 flow sensor, 4-channel relay module, solenoid valve, 2 LEDs, buzzer, 220 Ω resistor, suitable power supplies, Wi-Fi, Blynk account/template/token, jumper wires.
+
 
 ## Procedure
 1. Connect rain module VCC to 3V3, GND to GND, DO to D4.
