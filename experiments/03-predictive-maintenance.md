@@ -11,7 +11,10 @@ Monitor temperature and vibration using DHT11 and SW-420 and classify equipment 
 5. Otherwise classify Normal; display readings/status and repeat.
 
 ## Components Required
-Arduino UNO, DHT11 sensor, SW-420 vibration module, breadboard, jumper wires, USB cable, 10 kΩ resistor if required by the DHT11 module, Adafruit DHT library.
+
+> [!NOTE]
+> Arduino UNO, DHT11 sensor, SW-420 vibration module, breadboard, jumper wires, USB cable, 10 kΩ resistor if required by the DHT11 module, Adafruit DHT library.
+
 
 ## Procedure
 1. Connect DHT11 DATA to D2 and SW-420 OUT to D3; connect VCC/GND correctly.
