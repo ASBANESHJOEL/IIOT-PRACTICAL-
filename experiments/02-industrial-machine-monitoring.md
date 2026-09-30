@@ -1,29 +1,51 @@
-# Experiment 2: Industrial Machine Monitoring
+# Experiment 2: Real-Time Industrial Machine Monitoring System
 
 ## Aim
-Detect vibration from a machine or model setup and provide a local alert.
+Detect machine vibration using SW-420 and provide a visual and audible alert.
 
-## Components discussed
-- SW-420 vibration sensor module
-- Microcontroller
-- LED and buzzer
+## Algorithm
+1. Configure SW-420 output as input and LED/buzzer as outputs.
+2. Read the vibration sensor.
+3. If vibration is detected (HIGH in this record's wiring), turn LED and buzzer ON.
+4. Otherwise turn both OFF.
+5. Print status to Serial Monitor and repeat.
 
-## Working principle
-The vibration module changes its digital output when vibration crosses its internal sensitivity setting. The controller reads the output and activates an LED or buzzer when vibration is detected.
+## Components Required
+Arduino UNO, SW-420 vibration module, LED (with suitable resistor), active buzzer, breadboard, jumper wires, USB cable.
 
-## Procedure outline
-1. Connect the module output to a suitable digital input.
-2. Connect the LED and buzzer through appropriate driver/current-limiting components.
-3. Read the sensor state repeatedly.
-4. Turn on the alert output when vibration is detected; otherwise keep it inactive.
-5. Test with gentle, controlled vibration.
+## Procedure
+1. Connect SW-420 VCC and GND to board supply and ground; connect OUT to D2.
+2. Connect LED to D13 (or the board's built-in LED) and buzzer to D8, with appropriate driver/current limiting.
+3. Upload the code and open Serial Monitor at 9600 baud.
+4. Apply gentle vibration and observe the sensor state and alert.
+5. Adjust module sensitivity if available.
 
-## Key points
-- SW-420 modules commonly provide a threshold-style digital output; they do not provide calibrated vibration magnitude.
-- Adjust sensitivity carefully and avoid loose wiring.
-- For real machinery, use appropriate industrial-grade sensing and safety procedures.
+## Code
+```cpp
+const int vibrationPin = 2;
+const int ledPin = 13;
+const int buzzerPin = 8;
 
-## Viva
-**What does SW-420 detect?** Vibration or shock events above its set sensitivity.
-**Why use a buzzer?** To provide an audible local warning.
-**Is this a vibration spectrum analyzer?** No; a basic SW-420 module is generally a threshold detector.
+void setup() {
+  pinMode(vibrationPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int vibration = digitalRead(vibrationPin);
+  if (vibration == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+    Serial.println("Vibration detected!");
+  } else {
+    digitalWrite(ledPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+    Serial.println("Machine normal");
+  }
+  delay(500);
+}
+```
+
+**Note:** SW-420 is a threshold-type vibration switch, not a calibrated vibration measurement device. Confirm output polarity for the actual module.
