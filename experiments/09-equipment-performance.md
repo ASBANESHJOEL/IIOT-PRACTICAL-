@@ -12,7 +12,10 @@ Use a potentiometer to control DC motor speed and SW-420 to monitor vibration ev
 6. Print speed, vibration count, status, and suggested action.
 
 ## Components Required
-Arduino UNO, SW-420 module, 9V DC motor, 10 kΩ potentiometer, 2N2222 transistor, 1 kΩ resistor, 1N4007 diode, 9V battery, breadboard, jumper wires.
+
+> [!NOTE]
+> Arduino UNO, SW-420 module, 9V DC motor, 10 kΩ potentiometer, 2N2222 transistor, 1 kΩ resistor, 1N4007 diode, 9V battery, breadboard, jumper wires.
+
 
 ## Procedure
 1. Connect potentiometer outer pins to 5V/GND and middle pin to A0.
