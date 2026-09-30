@@ -11,7 +11,10 @@ Detect machine vibration using SW-420 and provide a visual and audible alert.
 5. Print status to Serial Monitor and repeat.
 
 ## Components Required
-Arduino UNO, SW-420 vibration module, LED (with suitable resistor), active buzzer, breadboard, jumper wires, USB cable.
+
+> [!NOTE]
+> Arduino UNO, SW-420 vibration module, LED (with suitable resistor), active buzzer, breadboard, jumper wires, USB cable.
+
 
 ## Procedure
 1. Connect SW-420 VCC and GND to board supply and ground; connect OUT to D2.
