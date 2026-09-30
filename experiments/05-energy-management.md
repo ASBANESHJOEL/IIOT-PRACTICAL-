@@ -12,7 +12,10 @@ Use ESP32 to monitor voltage, current, power, and energy and alert when power re
 6. Print readings and status every 2 seconds.
 
 ## Components Required
-ESP32, voltage sensor, current sensor, LED, buzzer, resistors, breadboard, jumper wires, USB cable, suitable low-voltage isolated test load.
+
+> [!NOTE]
+> ESP32, voltage sensor, current sensor, LED, buzzer, resistors, breadboard, jumper wires, USB cable, suitable low-voltage isolated test load.
+
 
 ## Procedure
 1. Connect voltage sensor output to GPIO34 and current sensor output to GPIO35.
