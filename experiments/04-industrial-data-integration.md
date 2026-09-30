@@ -1,31 +1,57 @@
-# Experiment 4: Industrial Data Integration
+# Experiment 4: Industrial Data Integration and Analytics System
 
 ## Aim
-Collect readings from different sensors and integrate them into one monitoring program.
+Read and integrate light, air-quality/gas, and distance measurements using LDR, MQ-135, and HC-SR04.
 
-## Components discussed
-- LDR (light-dependent resistor)
-- MQ-135 air-quality/gas sensor module
-- HC-SR04 ultrasonic distance sensor
-- Microcontroller
+## Algorithm
+1. Initialize LDR and MQ-135 analog inputs and HC-SR04 trigger/echo pins.
+2. Read LDR and MQ-135 analog values.
+3. Trigger the ultrasonic sensor and measure echo duration.
+4. Convert echo duration to distance in centimeters.
+5. Print all readings together every 5 seconds.
 
-## Working principle
-Each sensor measures a different physical/environmental quantity. The controller reads the sensor outputs, converts them into usable values, and combines them for monitoring.
+## Components Required
+Arduino UNO, LDR and voltage-divider resistor, MQ-135 module, HC-SR04 ultrasonic sensor, breadboard, jumper wires, USB cable.
 
-## Procedure outline
-1. Connect each sensor using its module-specific wiring.
-2. Read the LDR through an analog input and interpret the relative light level.
-3. Read the MQ-135 output after its required warm-up and calibration considerations.
-4. Trigger and measure the HC-SR04 echo pulse to estimate distance.
-5. Display or transmit the collected values together.
+## Procedure
+1. Connect LDR divider output to A0 and MQ-135 analog output to A1.
+2. Connect HC-SR04 TRIG to D9 and ECHO to D10; connect VCC/GND.
+3. Upload the code and open Serial Monitor at 9600 baud.
+4. Vary light, observe MQ-135 response after warm-up, and move an object in front of HC-SR04.
+5. Record the three sensor values.
 
-## Key points
-- An LDR is typically used as part of a voltage divider.
-- MQ-135 readings are not automatically a precise concentration measurement; calibration and environmental conditions matter.
-- HC-SR04 distance is estimated from echo travel time and the speed of sound.
-- Confirm voltage compatibility, especially for echo signals connected to 3.3 V boards.
+## Code
+```cpp
+const int ldrPin = A0;   // Explicit declaration for the record's missing variable
+const int mqPin = A1;
+const int trigPin = 9;
+const int echoPin = 10;
 
-## Viva
-**What is sensor integration?** Combining data from multiple sensors in one system.
-**What does LDR measure?** Relative light intensity.
-**How does HC-SR04 work?** It measures the time taken for an ultrasonic pulse to return.
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  int lightValue = analogRead(ldrPin);
+  int gasValue = analogRead(mqPin);
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH, 30000);
+  float distance = duration > 0 ? duration * 0.0343 / 2.0 : -1;
+
+  Serial.print("Light: "); Serial.print(lightValue);
+  Serial.print(" | MQ135: "); Serial.print(gasValue);
+  Serial.print(" | Distance: "); Serial.print(distance);
+  Serial.println(" cm");
+  delay(5000);
+}
+```
+
+**Note:** The source record's code uses `ldrPin` without declaring it; this version adds `const int ldrPin = A0;` to make it compile. MQ-135 raw values are not calibrated gas concentrations. Check voltage compatibility before connecting echo to a 3.3 V board.
