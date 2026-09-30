@@ -12,7 +12,10 @@ Demonstrate a basic security-by-design flow for an IoT device using PIR event de
 6. Compute SHA-256 digest for the demonstration log.
 
 ## Components Required
-ESP32, PIR sensor (HW-416-B), LED and 220–330 Ω resistor, breadboard, jumper wires, USB cable, Arduino IDE with ESP32 support, Python 3, Python `cryptography` package, computer on same network.
+
+> [!NOTE]
+> ESP32, PIR sensor (HW-416-B), LED and 220–330 Ω resistor, breadboard, jumper wires, USB cable, Arduino IDE with ESP32 support, Python 3, Python `cryptography` package, computer on same network.
+
 
 ## Procedure
 1. Connect PIR OUT to GPIO18; connect LED through resistor to GPIO23 and common GND.
